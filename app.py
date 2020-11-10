@@ -18,19 +18,15 @@ if __name__ == "__main__":
 
 
 @app.route('/favorites')
-def favorites():
+def favorites(request):
     base_url = "http://www.omdbapi.com/"
     response = requests.get(base_url)
     html = response.content
     soup = BeautifulSoup(html, "html.parser")
-    title = soup.find('title')
+    movie = soup.find('title')
+    context = {'movie': movie}
 
-    # Read out favorited movies.
-    filename = os.path.join('data.json')
-    with open(filename) as data_file:
-        data = json.load(data_file)
-        return data
-    return render_template('favorites.html')
+    return render_template('favorites.html', context)
 
 
 @app.route('/search', methods=['POST'])
