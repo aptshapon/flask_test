@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Movie search</h1>
 
 <a href="/">Home</a>
@@ -7,3 +10,4 @@
   <p>{{ movie['title'] }}</p>
   <p>{{ movie['description'] }}</p>
 {% endfor %}
+{% endblock content %}

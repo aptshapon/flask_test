@@ -1,8 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Movie search</h1>
 
 <a href="/">Home</a>
 <h2>Search Results</h2>
 
 {% for movie in results %}
-  <a href="/movie/{{movie['oid']}}"">{{ movie["title"] }}</p>
+  <a href="/movie/{{movie['id']}}"">{{ movie["title"] }}</p>
 {% endfor %}
+{% endblock content %}
